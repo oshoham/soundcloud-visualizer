@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>orenshoham.com | SoundCloud Music Visualizer</title>
+
+    <style>
+      body {
+        background-color: #c8c8c8;
+        margin: 0px;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      html, body, #canvas {
+        width: 100%;
+        height: 100%;
+      }
+
+      .search {
+        border-radius: 4px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        z-index: 1;
+      }
+
+      .search--fadeout {
+        opacity: 0;
+
+        -webkit-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -moz-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -ms-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -o-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      }
+
+      .search__input {
+        background: #e5e5e5;
+        border-radius: 4px;
+        border: 0;
+        color: #666;
+        font-size: 16px;
+        font-weight: 100;
+        height: 35px;
+        line-height: 20px;
+        outline: 0;
+        padding: 5px 7px;
+        width: 100%;
+      }
+
+      .search__results {
+        margin: 0 auto;
+        max-height: 200px;
+        overflow: auto;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        border-radius: 0 0 4px 4px;
+      }
+
+      .search__results li {
+        box-sizing: border-box;
+        color: #666;
+        height: 47px;
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 10px;
+        width: 100%;
+        background-color: #111;
+        cursor: pointer;
+      }
+
+      .search__results li:hover {
+        background-color: #333;
+      }
+
+      .search__results__artwork {
+        height: 25px;
+        position: absolute;
+        width: 25px;
+      }
+
+      .search__results__title {
+        display: inline-block;
+        overflow: hidden;
+        padding-bottom: 4px;
+        padding-left: 32px;
+        padding-top: 4px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 90%;
+      }
+
+      .player {
+        left: 50%;
+        bottom: 0;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        z-index: 1;
+      }
+
+      .player--fadeout {
+        opacity: 0;
+
+        -webkit-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -moz-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -ms-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -o-transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        transition: opacity 1s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      }
+
+      .player--hidden {
+        display: none;
+      }
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../js/dist/beat-detection.js" defer></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <audio id="player" class="player player--hidden" crossorigin="anonymous" controls autoplay></audio>
+    <div class="search" id="soundcloud-search">
+      <input type="search" class="search__input" id="soundcloud-search-input" placeholder="Search for a track on SoundCloud..."/>
+      <ul class="search__results" id="soundcloud-search-results"></ul>
+    </div>
+  </body>
+</html>
