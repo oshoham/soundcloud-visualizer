@@ -23,7 +23,7 @@ function visualize (audioHandler) {
   function draw (time) {
     audioHandler.update();
     var isBeat = audioHandler.isBeat;
-    var frequencyBins = audioHandler.freqByteData.slice(0, 500).filter(function (value, i) {
+    var frequencyBins = Array.from(audioHandler.freqByteData).slice(0, 500).filter(function (value, i) {
       return i % 70 === 0;
     });
 
