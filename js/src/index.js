@@ -116,7 +116,7 @@ function main() {
   }
 
   initSoundCloudSearchBar(input, results, soundCloudClientId, function (track) {
-    audioHandler.source.mediaElement.src = track.stream_url;
+    player.src = track.stream_url;
     player.classList.remove('player--hidden');
 
     let fadeTime = 1000;
